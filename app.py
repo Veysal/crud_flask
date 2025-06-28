@@ -22,3 +22,19 @@ cursor.execute("""
 
 conn.commit()
 conn.close()
+
+app = Flask(__name__)
+
+def get_db_conn():
+    conn = sqlite3.connect("users.db")
+    conn.row_factory = sqlite3.Row
+    return conn
+
+@app.route("/")
+def main():
+    conn = get_db_conn()
+    sort_by = request.args.get("sort_by", "last_name")
+    search_query = request.args.get("search", "")
+
+    conn.close()
+    return render_template("index.html")

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link id="theme-style" rel="stylesheet" href="{{ url_for('static', filename = 'css/light.css') }}">
+    <title>Пользователи</title>
+</head>
+<body>
+    <div class="container">
+        <button id="theme-toggle" class="theme-button">Переключить тему</button>
+        <!-- Кнопка добавления -->
+        <a href="" class="add-button">Добавить пользователя</a>
+
+        <!-- Выпадающий список -->
+         <form action="/" method="get" class="sort-form">
+            <label for="sort_by">Сортировать по</label>
+            <select name="sort_by" id="sort_by">
+                <option value="last_name">Фамилия</option>
+                <option value="gender">Пол</option>
+                <option value="age">Возраст</option>
+            </select>
+            <button class="apply" type="submit">Применить</button>
+         </form>
+
+         <!-- Поле поиска -->
+          <form action="/" method="get" class="search-form">
+            <input type="text" name="search" placeholder="Поиск по имении и фамилии" value="">
+            <button class="search_button" type="submit">Найти</button>
+          </form>
+    </div>
+</body>
+</html>
