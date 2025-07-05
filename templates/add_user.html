@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить пользователя</title>
+    <script src="https://unpkg.com/imask"></script> 
+</head>
+<body>
+
+<div class="form-container">
+    <div class="form-wrapper">
+        <h2>Добавить нового пользователя</h2>
+        <form id="user-form" action="{{ url_for('add_user') }}" method="post" novalidate>
+            <div class="input-group">
+                <input type="text" name="first_name" id="first_name" required minlength="2" maxlength="50">
+                <label for="first_name">Имя</label>
+                <div class="error-message" data-error-for="first_name"></div>
+            </div>
+
+            <div class="input-group">
+                <input type="text" name="last_name" id="last_name" required minlength="2" maxlength="50">
+                <label for="last_name">Фамилия</label>
+                <div class="error-message" data-error-for="last_name"></div>
+            </div>
+
+            <div class="input-group">
+                <select name="gender" id="gender" required>
+                    <option value="" disabled selected></option>
+                    <option value="Мужской">Мужской</option>
+                    <option value="Женский">Женский</option>
+                </select>
+                <label class="label-select" for="gender">Пол</label>
+                <div class="error-message" data-error-for="gender"></div>
+            </div>
+
+            <div class="input-group">
+                <input type="number" name="age" id="age" required min="1" max="120">
+                <label for="age">Возраст</label>
+                <div class="error-message" data-error-for="age"></div>
+            </div>
+
+            <div class="input-group">
+            <input type="text" name="phone" id="phone" required>
+            <label for="phone">Телефон</label>
+            <div class="error-message" data-error-for="phone"></div>
+        </div>
+
+            <div class="input-group">
+                <input type="email" name="email" id="email" required>
+                <label for="email">Электронная почта</label>
+                <div class="error-message" data-error-for="email"></div>
+            </div>
+
+            <div class="input-group">
+                <input type="text" name="address" id="address" required maxlength="255">
+                <label for="address">Адрес проживания</label>
+                <div class="error-message" data-error-for="address"></div>
+            </div>
+
+            <div class="input-group">
+                <input type="number" step="0.01" name="salary" id="salary" required min="0">
+                <label for="salary">Заработная плата</label>
+                <div class="error-message" data-error-for="salary"></div>
+            </div>
+
+            <button type="submit">Сохранить</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
