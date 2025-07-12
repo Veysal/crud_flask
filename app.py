@@ -35,9 +35,15 @@ def main():
     conn = get_db_conn()
     sort_by = request.args.get("sort_by", "last_name")
     search_query = request.args.get("search", "")
-
+    query = "SELECT * FROM users"
+    if search_query:
+        query += f" WHERE first_name LIKE ? OR last_name LIKE ?"
+        users = conn.execute(query, [f"%{search_query}%", f"%{search_query}%"]).fetchall()
+    else:
+        query += f" ORDER BY {sort_by}"
+        users = conn.execute(query).fetchall()
     conn.close()
-    return render_template("index.html")
+    return render_template("index.html", users=users, sort_by=sort_by, search=search_query)
 
 @app.route("/add", methods = ["GET", "POST"])
 def add_user():
@@ -48,7 +54,7 @@ def add_user():
         age = int(request.form.get("age"))
         phone = request.form.get("phone")
         email = request.form.get("email")
-        address = request.form.get("addres")
+        address = request.form.get("address")
         salary = float(request.form.get("salary"))
 
         conn = get_db_conn()
