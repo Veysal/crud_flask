@@ -67,3 +67,36 @@ def add_user():
         return redirect(url_for('main'))
     return render_template("add_user.html")
 
+@app.route("/edit/<int:user_id>", methods = ["POST", "GET"])
+def edit_user(user_id):
+    conn = get_db_conn()
+    user = conn.execute("SELECT * FROM users WHERE id = ?", (user_id,)).fetchone()
+
+    if request.method == "POST":
+        first_name = request.form.get("first_name")
+        last_name = request.form.get("last_name")
+        gender = request.form.get("gender")
+        age = int(request.form.get("age"))
+        phone = request.form.get("phone")
+        email = request.form.get("email")
+        address = request.form.get("address")
+        salary = float(request.form.get("salary"))
+
+        conn.execute("""
+            UPDATE users SET 
+                first_name = ?,
+                last_name = ?,
+                gender = ?,
+                age = ?,
+                phone = ?,
+                email = ?,
+                address = ?,
+                salary = ?
+                WHERE id =?
+        """, (first_name, last_name, gender, age, phone, email, address, salary))
+        conn.commit()
+        conn.close()
+        return redirect(url_for('main'))
+    return render_template("edit_user.html", user=user)
+
+
