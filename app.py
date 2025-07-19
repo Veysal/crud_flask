@@ -99,4 +99,15 @@ def edit_user(user_id):
         return redirect(url_for('main'))
     return render_template("edit_user.html", user=user)
 
+@app.route("/delete/<int:user_id>")
+def delete_user(user_id):
+    conn = get_db_conn()
+    conn.execute("DELETE FROM users WHERE id = ?", (user_id,))
+    conn.commit()
+    conn.close()
+    return redirect(url_for("main"))
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
 
