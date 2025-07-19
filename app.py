@@ -93,7 +93,7 @@ def edit_user(user_id):
                 address = ?,
                 salary = ?
                 WHERE id =?
-        """, (first_name, last_name, gender, age, phone, email, address, salary))
+        """, (first_name, last_name, gender, age, phone, email, address, salary,user_id))
         conn.commit()
         conn.close()
         return redirect(url_for('main'))

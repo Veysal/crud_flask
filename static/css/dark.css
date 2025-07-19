@@ -1,0 +1,242 @@
+body{
+    font-family: serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1e1e1e;
+    color: #FFF8CE;
+}
+
+
+.container{
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 10px;
+    padding-top: 200px;
+}
+
+.theme-button{
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    padding: 8px 12px;
+    font-size: 16px;
+    background-color: #7280ED;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.35s ease;
+    font-weight: bold;
+}
+
+.theme-button:hover{
+    background-color: #0056b3;
+}
+
+
+.add-button{
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #7280ED;
+    color: white;
+    border-radius: 6px;
+    display: inline-block;
+    padding: 10px 20px;
+    transition: all 0.35s linear;
+    margin-bottom: 20px;
+    margin-right: 115px;
+}
+
+.add-button:hover{
+    background-color: #0056b3;
+}
+
+.sort-form, .search-form{
+    display: inline-block;
+    margin-right: 114px;
+    margin-bottom: 20px;
+}
+
+.sort-form select,
+.search-form input{
+    padding: 10px 15px;
+    border: 3px solid #FA5331;
+    border-radius: 10px;
+    outline: none;
+    width: 180px;
+    transition: all 0.35s linear;
+    margin-right: 10px;
+    background-color: #141212;
+    color: #FFF8CE;
+}
+
+.search-form input::placeholder{
+    color: #FFF8CE;
+}
+
+.search_button{
+    padding: 8px 25px;
+    background-color: #FA5331;
+    color: #FFF8CE;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.35s linear;
+    border: none;
+}
+
+.apply{
+    padding: 8px 17px;
+    background-color: #FA5331;
+    color: #FFF8CE;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.35s linear;
+    border: none;
+}
+
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 40px;
+    background-color: white;
+    overflow: hidden;
+}
+
+table th,
+table td{
+    padding: 12px 15px;
+}
+
+table th{
+    background-color: #3F3F3F;
+    color: #F8EDAD;
+    font-weight: 700;
+}
+
+table tr:nth-child(even){
+    background-color: #1F1F1F;
+    color: #F8EDAD;
+    font-size: 18px;
+}
+
+table tr:nth-child(odd){
+    background-color: #141212;
+    color: #F8EDAD;
+    font-size: 18px;
+}
+
+.edit_button,
+.delete_button{
+    display: block;
+    padding: 7px 12px;
+    color: #FFF8CE;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.edit_button{
+    background-color: #FA5331;
+    margin-bottom: 3px;
+}
+
+.delete_button{
+    background-color: #7280ED;
+}
+
+
+
+/* Форма добавления пользователей add_user */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.form-wrapper {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+.form-wrapper h2 {
+    margin-top: 0;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* === Стили полей ввода с плавающими лейблами === */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 12px 12px 6px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    background-color: #fff;
+}
+
+.input-group label,
+.input-group .label-select {
+    position: absolute;
+    top: 6px;
+    left: 12px;
+    font-size: 12px;
+    color: #999;
+    pointer-events: none;
+    transition: all 0.2s ease;
+    background-color: white;
+    padding: 0 4px;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label,
+.input-group select:focus + .label-select,
+.input-group select:valid + .label-select {
+    top: -8px;
+    left: 8px;
+    font-size: 11px;
+    color: #007bff;
+}
+
+
+.form-wrapper button{
+    width: 100%;
+    padding: 10px;
+    background-color: #7280ED;
+    color: #FFF8CE;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+}
+ 
+.error-message{
+    color:#dc3545;
+    font-size: 12px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    display: none;
+}

@@ -59,13 +59,19 @@
                         <td>{{ user[7] }}</td>
                         <td>{{ user[8] }}</td>
                         <td>
-                            <a href="" class="edit_button">Изменить</a>
-                            <a href="" class="delete_button">Удалить</a>
+                            <a href="{{ url_for('edit_user', user_id = user.id) }}" class="edit_button">Изменить</a>
+                            <a href="{{ url_for('delete_user', user_id = user.id) }}" class="delete_button">Удалить</a>
                         </td>
                     </tr>
                     {% endfor %}
                 </tbody>
            </table>
     </div>
+
+    <script>
+        const THEME_LIGHT = "{{ url_for('static', filename='css/light.css') }}"
+        const THEME_DARK = "{{ url_for('static', filename='css/dark.css') }}"
+    </script>
+    <script src="{{ url_for('static', filename='js/theme_switcher.js') }}" defer></script>
 </body>
 </html>
